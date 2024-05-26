@@ -20,6 +20,7 @@ jobs:
 
   build-and-test:
     runs-on: ubuntu-latest
+    needs: run_linter
     steps: 
       - name: Code Checkout
         uses: actions/checkout@v4
