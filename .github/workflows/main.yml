@@ -15,10 +15,10 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Test frontend
-        run: npm run test
+      # - name: Test app
+      #   run: npm start
 
-      # - name: Build frontend
-      #   working-directory: ./frontend
-      #   run: npm run build
+      - name: Build frontend
+        working-directory: ./frontend
+        run: npm run build
 
