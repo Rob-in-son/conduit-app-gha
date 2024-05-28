@@ -1,6 +1,7 @@
 name: Conduit-actions
 on: 
   push:
+  workflow_dispatch:
     branches: [ main ]
 jobs:
   # run_linter:
