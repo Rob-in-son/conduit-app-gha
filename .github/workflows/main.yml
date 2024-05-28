@@ -71,7 +71,7 @@ jobs:
           -Dsonar.login=${{ secrets.SONAR_TOKEN }}
           -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
           -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-          -Dsonar.sources=frontend/, backend/
+          -Dsonar.sources=frontend/,backend/
 
       # - name: Build backend
       #   working-directory: ./backend
