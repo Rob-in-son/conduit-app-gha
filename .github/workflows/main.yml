@@ -70,7 +70,7 @@ jobs:
             -Dsonar.host.url=${{ secrets.SONAR_URL }}
             -Dsonar.login=${{ secrets.SONAR_TOKEN }}
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
-            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+            -Dsonar.projectKey=conduit-app-gha
             -Dsonar.sources=frontend/, backend/
 
       # - name: Build backend
@@ -79,3 +79,5 @@ jobs:
 
       # - name: Test app
       #   run: npm run dev
+
+      # -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
