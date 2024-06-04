@@ -76,4 +76,9 @@ jobs:
           printf "DEV_DB_HOSTNAME=%s\n" ${{ secrets.DEV_DB_HOSTNAME }} >> .env
           printf "DEV_DB_DIALECT=%s\n" ${{ secrets.DEV_DB_DIALECT }} >> .env
           printf "DEV_DB_LOGGING=%s\n" ${{ secrets.DEV_DB_LOGGING }} >> .env
-          ls
+          if [ -f backend/.env ]; then
+            echo ".env file created successfully in backend directory"
+          else
+            echo "Error: .env file creation failed!"
+          fi
+          
