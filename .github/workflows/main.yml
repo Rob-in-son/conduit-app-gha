@@ -68,9 +68,9 @@ jobs:
 
       # create .env file in backend dir
       - name: create .env file
-        working-directory: backend
         run: |
           chmod 755 backend
+          cd backend
           printf "DEV_DB_USERNAME=%s\n" ${{ secrets.DEV_DB_USERNAME }} >> .env
           printf "DEV_DB_PASSWORD=%s\n" "$(echo ${{ secrets.DEV_DB_PASSWORD }})" >> .env
           printf "DEV_DB_NAME=%s\n" ${{ secrets.DEV_DB_NAME }} >> .env
