@@ -5,6 +5,7 @@ on:
     branches: [ main ]
 env:
     AWS_REGION: us-east-1
+    AWS_SDK_DEBUG: true
     # ECR_REPOSITORY: 
     # ECS_SERVICE:
     # ECS_CLUSTER:
@@ -93,7 +94,6 @@ jobs:
       - name: Build and upload frontend image to ECR
         uses: appleboy/docker-ecr-action@master
         with:
-          AWS_SDK_DEBUG: true
           access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
           secret_key: ${{ secrets.AWS_SECRET_KEY }}
           registry: ${{ secrets.REGISTRY }}
