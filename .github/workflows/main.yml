@@ -3,6 +3,13 @@ on:
   push:
   workflow_dispatch:
     branches: [ main ]
+env:
+    AWS_REGION: us-east-1
+    # ECR_REPOSITORY: 
+    # ECS_SERVICE:
+    # ECS_CLUSTER:
+    # ECS_TASK_DEFINITION:
+    # CONTAINER_NAME: 
 jobs:
   build-and-test:
     runs-on: ubuntu-latest
@@ -82,4 +89,17 @@ jobs:
           else
             echo "Error: .env file creation failed!"
           fi
+
+      - name: Build and upload frontend image to ECR
+        uses: appleboy/docker-ecr-action@master
+        with:
+          access_key: ${{ secrets.AWS_ACCESS_KEY_ID}}
+          secret_key: ${{secrets.AWS_SECRET_KEY}}
+          registry: ${{ secrets.REGISTRY}}
+          repo: conduitapp
+          region: ${{env.AWS_REGION}}
+          tags: latest, ${{ github.run_number }}, frontend
+          daemon_off: off
+          dockerfile: frontend/.Dockerifle
+          context: frontend
           
