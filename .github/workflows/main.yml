@@ -93,9 +93,9 @@ jobs:
       - name: Build and upload frontend image to ECR
         uses: appleboy/docker-ecr-action@master
         with:
-          access_key: ${{ secrets.AWS_ACCESS_KEY_ID}}
-          secret_key: ${{secrets.AWS_SECRET_KEY}}
-          registry: ${{ secrets.REGISTRY}}
+          access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          secret_key: ${{ secrets.AWS_SECRET_KEY }}
+          registry: ${{ secrets.REGISTRY }}
           repo: conduitapp
           region: ${{env.AWS_REGION}}
           tags: latest, ${{ github.run_number }}, frontend
