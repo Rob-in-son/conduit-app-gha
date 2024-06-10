@@ -90,6 +90,11 @@ jobs:
           else
             echo "Error: .env file creation failed!"
           fi
+        
+      - name: Debug aws credentials
+        run: |
+          echo access_key: $AWS_ACCESS_KEY_ID 
+          echo secret_key: hidden
 
       - name: Build and upload frontend image to ECR
         uses: appleboy/docker-ecr-action@master
@@ -98,9 +103,10 @@ jobs:
           secret_key: ${{ secrets.AWS_SECRET_KEY }}
           registry: ${{ secrets.REGISTRY }}
           repo: conduitapp
-          region: ${{env.AWS_REGION}}
+          region: ${{ env.AWS_REGION }}
           tags: latest, ${{ github.run_number }}, frontend
           daemon_off: off
           dockerfile: frontend/.Dockerifle
           context: frontend
+
           
