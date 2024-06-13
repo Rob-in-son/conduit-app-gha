@@ -106,7 +106,7 @@ jobs:
           region: ${{ env.AWS_REGION }}
           tags: latest, ${{ github.run_number }}, frontend
           daemon_off: false
-          dockerfile: frontend/.Dockerifle
+          dockerfile: frontend/Dockerfile
           context: frontend
 
           
