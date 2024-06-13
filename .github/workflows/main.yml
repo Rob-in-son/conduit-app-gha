@@ -105,7 +105,7 @@ jobs:
           repo: conduitapp
           region: ${{ env.AWS_REGION }}
           tags: latest, ${{ github.run_number }}, frontend
-          daemon_off: off
+          daemon_off: false
           dockerfile: frontend/.Dockerifle
           context: frontend
 
