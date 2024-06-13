@@ -104,7 +104,7 @@ jobs:
           registry: ${{ secrets.REGISTRY }}
           repo: conduitapp
           region: ${{ env.AWS_REGION }}
-          tags: latest, frontend
+          tags: ${{ github.run_number }}-frontend
           daemon_off: false
           dockerfile: frontend/Dockerfile
           context: frontend
@@ -117,7 +117,7 @@ jobs:
           registry: ${{ secrets.REGISTRY }}
           repo: conduitapp
           region: ${{ env.AWS_REGION }}
-          tags: latest, backend
+          tags: ${{ github.run_number }}-backend
           daemon_off: false
           dockerfile: backend/Dockerfile
           context: backend
